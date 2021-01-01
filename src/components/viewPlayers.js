@@ -1,12 +1,14 @@
 import React from "react";
 import { Players } from "./players";
 import axios from "axios";
-import "../css/viewPlayers.css";
-import SearchBox from "./searchBox";
+import "../css/pageStyles.css";
+import SearchBox from "./header";
+import { Link } from "react-router-dom";
 
 export class ViewPlayers extends React.Component {
   constructor(props) {
     super(props);
+    //set state for showing all players & state for showing searched players
     this.state = {
       players: [],
       searchPlayer: "",
@@ -47,18 +49,18 @@ export class ViewPlayers extends React.Component {
       });
   }
 
+  //function for taking value from searchBox to use for setting state
   handleInput = (e) => {
     console.log(e.target.value);
     this.setState({ searchPlayer: e.target.value });
   };
 
   render() {
+    //set state to contain the filtered list of players
     let filteredPlayers = this.state.players.filter((player) => {
-      return (
-        player.name
-          .toLowerCase()
-          .includes(this.state.searchPlayer.toLowerCase())
-      );
+      return player.name
+        .toLowerCase()
+        .includes(this.state.searchPlayer.toLowerCase());
     });
 
     return (

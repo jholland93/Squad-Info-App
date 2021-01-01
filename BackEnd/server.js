@@ -38,7 +38,7 @@ const Schema = mongoose.Schema;
 var playerSchema = new Schema({
 
   name: String,
-  dateOfBirth: Date,
+  dateOfBirth: String,
   nationality: String,
   position: String,
   squadNumber: String,

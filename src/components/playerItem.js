@@ -29,23 +29,23 @@ export class PlayerItem extends React.Component {
   render() {
     return (
       <div className="grid">
-        <Card style={{ width: '18rem' }} className="box">
-          <Card.Header as="h4">
-            {this.props.player.name}
+        <Card style={{ width: '18rem'}} className="box">
+          <Card.Header id="name-container">
+            <div id="name">{this.props.player.name}</div>
+            <div id="position">{this.props.player.position}</div>
+            <div id="number">{this.props.player.squadNumber}</div>
           </Card.Header>
           
           <Card.Body>
-            <ListGroup.Item>{this.props.player.dateOfBirth}</ListGroup.Item>
-            <ListGroup.Item>{this.props.player.nationality}</ListGroup.Item>
-            <ListGroup.Item>{this.props.player.position}</ListGroup.Item>
-            <ListGroup.Item>{this.props.player.squadNumber}</ListGroup.Item>
-            <ListGroup.Item>{this.props.player.goals}</ListGroup.Item>
-            <ListGroup.Item>{this.props.player.assists}</ListGroup.Item>
+            <ListGroup.Item style={{ margin: '0 0 5px 0', border:'none' }}><div class="category">DOB<span>{this.props.player.dateOfBirth}</span></div></ListGroup.Item>
+            <ListGroup.Item style={{ margin: '0 0 5px 0' , border:'none'}}><div class="category">Nationality<span>{this.props.player.nationality}</span></div></ListGroup.Item>
+            <ListGroup.Item style={{ margin: '0 0 5px 0', border:'none' }}><div class="category">Goals<span>{this.props.player.goals}</span></div></ListGroup.Item>
+            <ListGroup.Item style={{ margin: '0 0 5px 0' , border:'none'}}><div class="category">Assists<span>{this.props.player.assists}</span></div></ListGroup.Item>
 
             {/* <Button variant="primary">Go somewhere</Button> */}
           </Card.Body>
-          <Link to={"/editplayer/"+this.props.player._id} className="btn btn-primary">Edit</Link>
-          <Button variant="danger" onClick={this.DeletePlayer}>Delete</Button>
+          <Link to={"/editplayer/"+this.props.player._id} id="edit-button"><i class="fa fa-pen" /></Link>
+          <Button id="delete-button" onClick={this.DeletePlayer}><i class="fa fa-trash-alt" /></Button>
         </Card>
       </div>
     );

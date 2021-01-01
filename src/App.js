@@ -15,6 +15,7 @@ import { ViewPlayers } from "./components/viewPlayers";
 import { AddPlayer } from "./components/addPlayer";
 import { EditPlayer } from "./components/editPlayer";
 import { Content} from "./components/content";
+import { Footer } from "./components/footer";
 
 
 
@@ -24,27 +25,16 @@ class App extends Component {
      
       <Router>
         <div className="App">
-          <Navbar bg="dark" variant="dark">
-            <Navbar.Brand href="#home">SquadBuildr</Navbar.Brand>
-            <Nav className="mr-auto">
-              <Link to="/">Home</Link>
-              <Link to="/viewplayers">Players</Link>
-              <Link to="/addplayer">Add Player</Link>
-            </Nav>
-          </Navbar>
+    
           <br />
           <Switch>
             <Route path="/" component={Content} exact />
             <Route path="/viewplayers" component={ViewPlayers} />
             <Route path="/addplayer" component={AddPlayer} />
             <Route path="/editplayer/:id" component={EditPlayer} />
-            
           </Switch>
-          {/* <Players></Players>
-          <Content></Content>
-          <Footer></Footer> */}
         </div>
-        
+        <Footer/>
       </Router>
       
     );
