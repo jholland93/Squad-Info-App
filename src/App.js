@@ -7,10 +7,9 @@ import "./App.css";
 
 //bootstrap
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Navbar,Nav } from "react-bootstrap";
 
 //react router
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import { ViewPlayers } from "./components/viewPlayers";
 import { AddPlayer } from "./components/addPlayer";
 import { EditPlayer } from "./components/editPlayer";

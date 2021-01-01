@@ -14,8 +14,10 @@ export class PlayerItem extends React.Component {
     //prevent multiple calls
     e.preventDefault(e);
     console.log("Delete: "+ this.props.player._id);
+  
+    alert("Player has been deleted successfully!");
 
-    //delete movie using axios
+    //delete player using axios
     axios.delete("http://localhost:4000/api/players/"+this.props.player._id)
     .then(()=>{
       //invoke reloaddata function to call reloadData on players.js

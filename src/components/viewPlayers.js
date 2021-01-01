@@ -3,7 +3,6 @@ import { Players } from "./players";
 import axios from "axios";
 import "../css/pageStyles.css";
 import SearchBox from "./header";
-import { Link } from "react-router-dom";
 
 export class ViewPlayers extends React.Component {
   constructor(props) {

@@ -1,9 +1,7 @@
 import React from "react";
 import axios from "axios";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "../css/pageStyles.css";
-
-
 
 export class AddPlayer extends React.Component {
   constructor() {
@@ -76,7 +74,7 @@ export class AddPlayer extends React.Component {
     //stop calling of functioon multiple times
     e.preventDefault();
 
-    alert("Player: " + this.state.Name + "has been added successfully!");
+    alert(this.state.Name + " has been added successfully!");
 
     const newPlayer = {
       name: this.state.Name,
@@ -93,16 +91,14 @@ export class AddPlayer extends React.Component {
       .post("http://localhost:4000/api/players", newPlayer)
       .then((res) => {
         console.log(res);
+        this.props.history.push("/viewplayers");
       })
       .catch((err) => {
         console.log(err);
       });
-
-      this.props.history.push('/viewplayers');
   }
 
   render() {
-    
     return (
       <div className="App">
         <h2>Add Player</h2>
@@ -112,7 +108,7 @@ export class AddPlayer extends React.Component {
         <div class="form-container">
           {/* on submitting form, run onSubmit function */}
           <form onSubmit={this.onSubmit}>
-          <label>Player Name</label>
+            <label>Player Name</label>
             <div className="form-group">
               <input
                 type="text"
@@ -206,7 +202,7 @@ export class AddPlayer extends React.Component {
                 <option value="Filipino">Filipino</option>
                 <option value="Finnish">Finnish</option>
                 <option value="French">French</option>
-                <option value="Fabonese">Gabonese</option>
+                <option value="Gabonese">Gabonese</option>
                 <option value="Gambian">Gambian</option>
                 <option value="Georgian">Georgian</option>
                 <option value="German">German</option>
@@ -341,14 +337,13 @@ export class AddPlayer extends React.Component {
               </select>
             </div>
 
-            <div className="form-group" >
+            <div className="form-group">
               <label>Position</label>
               <select
                 type="text"
                 className="form-control"
                 value={this.state.Position}
                 onChange={this.onChangePosition}
-
               >
                 <option value="">Select One</option>
                 <option value="GK">Goalkeeper</option>
@@ -357,15 +352,11 @@ export class AddPlayer extends React.Component {
                 <option value="CB">Centre Back</option>
                 <option value="LB">Left Back</option>
                 <option value="LWB">Left Wing Back</option>
-                <option value="CDM">
-                  Central Defensive Midfielder
-                </option>
+                <option value="CDM">Central Defensive Midfielder</option>
                 <option value="RM">Right Midfielder</option>
                 <option value="CM">Central Midfielder</option>
                 <option value="LM">Left Midfielder</option>
-                <option value="CAM">
-                  Central Attacking Midfielder
-                </option>
+                <option value="CAM">Central Attacking Midfielder</option>
                 <option value="RF">Right Forward</option>
                 <option value="CF">Central Forward</option>
                 <option value="LF">Left Forward</option>
@@ -383,7 +374,7 @@ export class AddPlayer extends React.Component {
                 value={this.state.SquadNumber}
                 onChange={this.onChangeSquadNumber}
               />
-           
+
               <label>Goals</label>
               <input
                 type="number"
@@ -391,7 +382,7 @@ export class AddPlayer extends React.Component {
                 value={this.state.Goals}
                 onChange={this.onChangeGoals}
               />
-            
+
               <label>Assists</label>
               <input
                 type="number"
@@ -406,15 +397,12 @@ export class AddPlayer extends React.Component {
                 type="submit"
                 value="Add Player"
                 className="btn btn-primary"
-                to={{}}
+                style={{ background: "teal", border: "none" }}
               ></input>
             </div>
           </form>
         </div>
       </div>
-      
     );
-    
   }
-  
 }
