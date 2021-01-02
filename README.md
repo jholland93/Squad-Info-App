@@ -66,7 +66,7 @@ Simple footer used across the site - contains a link to this Github repo.
 
 
 
-**For information on how to use the application please refer to the User Guide in the Wiki Section of this repo.**
+**For information on how to use the application please refer to the [User Guide](https://github.com/jholland93/datarep_project/wiki/User-Guide) in the Wiki Section of this repo.**
 
 
 
