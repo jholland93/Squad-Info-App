@@ -13,14 +13,15 @@ export class PlayerItem extends React.Component {
   DeletePlayer(e){
     //prevent multiple calls
     e.preventDefault(e);
+
     console.log("Delete: "+ this.props.player._id);
   
     alert("Player has been deleted successfully!");
 
-    //delete player using axios
+    //delete player by id using axios
     axios.delete("http://localhost:4000/api/players/"+this.props.player._id)
     .then(()=>{
-      //invoke reloaddata function to call reloadData on players.js
+      //invoke reloadData function to call reloadData on players.js
       this.props.ReloadData();
     })
     .catch(
@@ -43,8 +44,6 @@ export class PlayerItem extends React.Component {
             <ListGroup.Item style={{ margin: '0 0 5px 0' , border:'none'}}><div class="category">Nationality<span>{this.props.player.nationality}</span></div></ListGroup.Item>
             <ListGroup.Item style={{ margin: '0 0 5px 0', border:'none' }}><div class="category">Goals<span>{this.props.player.goals}</span></div></ListGroup.Item>
             <ListGroup.Item style={{ margin: '0 0 5px 0' , border:'none'}}><div class="category">Assists<span>{this.props.player.assists}</span></div></ListGroup.Item>
-
-            {/* <Button variant="primary">Go somewhere</Button> */}
           </Card.Body>
           <Link to={"/editplayer/"+this.props.player._id} id="edit-button"><i class="fa fa-pen" /></Link>
           <Button id="delete-button" onClick={this.DeletePlayer}><i class="fa fa-trash-alt" /></Button>

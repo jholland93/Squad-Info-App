@@ -17,6 +17,7 @@ export class AddPlayer extends React.Component {
     this.onChangeGoals = this.onChangeGoals.bind(this);
     this.onChangeAssists = this.onChangeAssists.bind(this);
 
+    //set state
     this.state = {
       Name: " ",
       DateOfBirth: " ",
@@ -71,11 +72,13 @@ export class AddPlayer extends React.Component {
   }
   //submit button
   onSubmit(e) {
+
     //stop calling of functioon multiple times
     e.preventDefault();
 
     alert(this.state.Name + " has been added successfully!");
 
+    //create const to hold player info
     const newPlayer = {
       name: this.state.Name,
       dateOfBirth: this.state.DateOfBirth,
@@ -86,6 +89,7 @@ export class AddPlayer extends React.Component {
       assists: this.state.Assists,
       _id: this.state._id,
     };
+
     //add new player by sending up data asynchronously using axios
     axios
       .post("http://localhost:4000/api/players", newPlayer)
@@ -102,9 +106,12 @@ export class AddPlayer extends React.Component {
     return (
       <div className="App">
         <h2>Add Player</h2>
+
+        {/* back button */}
         <Link to="/viewplayers" className="backButton">
           <i className="fa fa-arrow-left" />
         </Link>
+        
         <div class="form-container">
           {/* on submitting form, run onSubmit function */}
           <form onSubmit={this.onSubmit}>
