@@ -19,6 +19,12 @@ app.use(function (req, res, next) {
   next();
 });
 
+//CONFIGURATION
+//set where to find build folder
+app.use(express.static(path.join(__dirname, "../build")));
+//set where to find static folder
+app.use("./static", express.static(path.join(__dirname, "build/static")));
+
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
 
@@ -36,7 +42,6 @@ mongoose.connect(myConnectionString, { useNewUrlParser: true });
 const Schema = mongoose.Schema;
 
 var playerSchema = new Schema({
-
   name: String,
   dateOfBirth: String,
   nationality: String,
@@ -109,6 +114,11 @@ app.post("/api/players", (req, res) => {
     assists: req.body.assists,
   });
   res.send("New Player Added Successfully!");
+});
+
+//sends back index.html for all http requests
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirnanme+'/../build/index.html'))
 });
 
 app.listen(port, () => {

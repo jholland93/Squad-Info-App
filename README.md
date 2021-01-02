@@ -7,7 +7,7 @@ This project was developed using the MERN stack (MongoDB, Express, React, Node).
 
 ## Application Set Up
 
-This application requires both client and server to be started separately as outlined below. Client runs at localhost:3000 while server runs at localhost:4000
+Both client and server run as one application which is served on localhost:4000
 
 
 ### Clone Repo to Local Folder 
@@ -21,10 +21,9 @@ git clone 'https://github.com/jholland93/datarep_project'
 
 ```bash
 npm install
-npm start
 ```
 
-Application will automatically open in browser at http://localhost:3000
+This will install required node modules.
 
 
 ### Connect to Backend Using Node
@@ -35,7 +34,7 @@ Application will automatically open in browser at http://localhost:3000
 node server.js
 ```
 
-Server will now run on http://localhost:4000 & you can now create, read, update and delete data.
+Application will now run on http://localhost:4000 & you can now create, read, update and delete data.
 
 
 # Components
