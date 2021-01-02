@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export class Content extends React.Component {
+export class WelcomePage extends React.Component {
   render() {
     return (
       <div>
