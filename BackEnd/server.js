@@ -4,6 +4,7 @@ const port = 4000;
 const cors = require("cors");
 const path = require("path");
 const bodyParser = require("body-parser");
+const uri = process.env.MONGODB_URI;
 
 const mongoose = require("mongoose");
 
@@ -117,8 +118,8 @@ app.post("/api/players", (req, res) => {
 });
 
 //sends back index.html for all http requests
-app.get('*',(req,res)=>{
-  res.sendFile(path.join(__dirnanme+'/../build/index.html'))
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirnanme + "/../build/index.html"));
 });
 
 app.listen(port, () => {
